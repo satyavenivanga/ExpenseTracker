@@ -1,0 +1,254 @@
+<html>
+
+<head>
+<title>registration</title>
+<link href="registration.css" type="text/css" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+
+</head>
+<body>
+
+	<style>
+		
+
+	</style>
+<div class="form">
+      
+      <ul class="tab-group">
+        <li class="tab active"><a href="#signup">Register here</a></li>
+        <li class="tab"><a href="#login">Log In</a></li>
+      </ul>
+      
+      <div class="tab-content">
+        <div id="signup">   
+          <h1>Registration Form</h1>
+          
+          <form action="add.html" method="post" onsubmit="return check()">
+          
+          <div class="top-row">
+            <div class="field-wrap">
+              <label>
+                First Name<span class="req">*</span>
+              </label>
+              <input type="text" name="fname" required autocomplete="off" />
+            </div>
+        
+            <div class="field-wrap">
+              <label>
+                Last Name<span class="req">*</span>
+              </label>
+              <input type="text" name ="lname" required autocomplete="off"/>
+            </div>
+          </div>
+
+          <div class="field-wrap">
+            <label>
+              Email Address<span class="req">*</span>
+            </label>
+            <input type="email" name="email" required autocomplete="off"/>
+          </div>
+          
+          <div class="field-wrap">
+            <label>
+              Date of Birth<span class="req">*</span>
+            </label>
+            <input type="date" name="dob" required autocomplete="off"/>
+          </div>
+
+		<div class="field-wrap">
+            <label>
+              Login id<span class="req">*</span>
+            </label>
+            <input type="text" name="loginid" required autocomplete="off"/>
+          </div>
+
+		<div class="field-wrap">
+            <label>
+              Set A Password<span class="req">*</span>
+            </label>
+            <input type="password" name="password" required autocomplete="off"/>
+          </div>
+
+		<div class="field-wrap">
+            <label>
+              Confirm Password<span class="req">*</span>
+            </label>
+            <input type="password" name="password" required autocomplete="off"/>
+          </div>
+	
+
+			<div class="bottom-row">
+			<div class="field-wrap" id="field">
+            <label>
+              Account number<span class="req">*</span>
+            </label>
+            <input id="field1" type="text" name="accountnumber" required autocomplete="off"/>
+          </div>
+
+				<div class="field-wrap" id="field">
+            <label>
+              Account nick name<span class="req">*</span>
+            </label>
+            <input id="field1" type="text" name="nickname" required autocomplete="off"/>
+          </div>
+		<div class="field-wrap">
+			<button onclick="accountfunction()" id="b1" class="btn add-more" type="button">add account</button>
+		</div>
+	</div>
+		<div class="new-row">
+			<span id="myForm"></span>
+			<span id="myForm2"></span> 
+		</div>
+
+
+           <input class="button" type="submit" value ="get started" />
+          
+          </form>
+
+        </div>
+        
+        <div id="login">   
+          <h1>Welcome Back!</h1>
+          
+          <form name="loginpage"  method="post" onsubmit="return check()" action="add.html">
+          
+            <div class="field-wrap">
+            <label>Login id
+              <span class="req">*</span>
+            </label>
+            <input type="Login id" name="loginid" required autocomplete="off" />
+          </div>
+          
+          <div class="field-wrap">
+            <label>password
+              <span class="req">*</span>
+            </label>
+            <input type="password" name="password" required autocomplete="off"/>
+          </div>
+
+			 <div class="field-wrap">
+            <label>confirm password
+              <span class="req">*</span>
+            </label>
+            <input type="password" name="cpassword" required autocomplete="off"/>
+          </div>
+          
+          <p class="forgot"><a href="#">Forgot Password?</a></p>
+          
+          <input class="button" type="submit" value ="login" />
+          
+          </form>
+
+        </div>
+        
+      </div>
+      
+</div>
+
+	<script>
+
+		
+		var i=0; 
+
+
+		function increment(){
+		i +=1;
+                              
+		}
+
+		function removeElement(parentDiv, childDiv){
+ 
+
+		 if (childDiv == parentDiv) {
+		      alert("The parent div cannot be removed.");
+		 }
+		 else if (document.getElementById(childDiv)) {     
+		      var child = document.getElementById(childDiv);
+		      var parent = document.getElementById(parentDiv);
+		      parent.removeChild(child);
+		 }
+		 else {
+		      alert("Child div has already been removed or does not exist.");
+		      return false;
+		 }
+		}
+
+		function accountfunction()
+			{
+			var r=document.createElement('span');
+			var p=document.createElement('span');
+			var y = document.createElement("INPUT");
+			var z = document.createElement("INPUT");
+			y.setAttribute("type", "text");
+			y.setAttribute("placeholder","AccountNumber");
+			z.setAttribute("type", "text");
+			z.setAttribute("placeholder","NickName");
+			var g = document.createElement("IMG");
+			g.setAttribute("src", "delete.png");
+			var h = document.createElement("IMG");
+			h.setAttribute("src", "delete.png");
+			increment(); 
+			y.setAttribute("AccountNumber","textelement_"+i);
+			z.setAttribute("NickName","textelement_"+i);
+			r.appendChild(y);
+			p.appendChild(z);
+			g.setAttribute("onclick", "removeElement('myForm','id_"+ i +"')");
+			h.setAttribute("onclick", "removeElement('myForm2','id_"+i +"')");
+			r.appendChild(g);
+			p.appendChild(h);
+			r.setAttribute("id", "id_"+i);
+			p.setAttribute("id", "id_"+i);
+			document.getElementById("myForm").appendChild(r);
+			document.getElementById("myForm2").appendChild(p);
+			}		
+
+
+		$('.form').find('input, textarea').on('keyup blur focus', function (e) {
+  
+  var $this = $(this),
+      label = $this.prev('label');
+
+	  if (e.type === 'keyup') {
+			if ($this.val() === '') {
+          label.removeClass('active highlight');
+        } else {
+          label.addClass('active highlight');
+        }
+    } else if (e.type === 'blur') {
+    	if( $this.val() === '' ) {
+    		label.removeClass('active highlight'); 
+			} else {
+		    label.removeClass('highlight');   
+			}   
+    } else if (e.type === 'focus') {
+      
+      if( $this.val() === '' ) {
+    		label.removeClass('highlight'); 
+			} 
+      else if( $this.val() !== '' ) {
+		    label.addClass('highlight');
+			}
+    }
+
+});
+
+$('.tab a').on('click', function (e) {
+  
+  e.preventDefault();
+  
+  $(this).parent().addClass('active');
+  $(this).parent().siblings().removeClass('active');
+  
+  target = $(this).attr('href');
+
+  $('.tab-content > div').not(target).hide();
+  
+  $(target).fadeIn(600);
+  
+});
+
+
+	</script>
+</body>
+
+</html>
