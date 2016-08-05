@@ -1,0 +1,66 @@
+
+
+.container-fluid{
+	padding:0;
+	margin:0;
+	color: #333;
+}
+
+
+h1{
+	font-family: fantasy;
+	font-size: 40px;
+	color: dimgrey;
+	float:left;
+	padding:0;
+	margin:0;
+}
+.page-header{
+	background-color:  #DADADA;	
+	margin:0;
+	box-shadow:0 0 10px black;
+	padding:10px;
+	overflow-x: hidden;
+	
+}
+#topBar>li{
+	font-size: 15px;
+}
+
+div#leftBar{
+	float:left;
+	width:15%;
+	background-color:#E8F1F5;
+	border:1px solid black;
+	box-shadow:0 0 10px black;
+}
+
+#chartContainer{
+	float:left;
+	display:inline-block;
+	width:50%;
+	background-color:#EAEEEF;
+	margin-left:140px;
+}
+
+#menuBar>li{
+	font-size:15px;
+}
+
+#menuBar>li:hover{
+	cursor:pointer;
+}
+
+#charts:hover{
+	cursor:pointer;
+}
+
+#allAccount, #addTransaction, #uploadTransaction, #addIncome, #viewIncome, #viewExpense, #viewSavings{
+	display:none;
+}
+
+#pagination{
+	margin-left:auto;
+	margin-right:auto;
+}
+
